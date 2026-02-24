@@ -1,0 +1,78 @@
+# ==========================
+# 1. 核心安全配置 (最重要)
+# ==========================
+# 忽略 Streamlit 的机密文件，防止 API Key 泄露
+.streamlit/secrets.toml
+.env
+
+# ==========================
+# 2. Python 编译与缓存文件
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================
+# 3. 虚拟环境 (Virtual Environments)
+# ==========================
+# 常见的虚拟环境文件夹名
+venv/
+env/
+.venv/
+.env/
+
+# ==========================
+# 4. Mac 系统文件 (清理垃圾文件)
+# ==========================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ==========================
+# 5. IDE 配置文件 (VSCode, PyCharm)
+# ==========================
+.idea/
+.vscode/
+*.swp
+
+# ==========================
+# 6. 大型数据文件 (可选)
+# ==========================
+# 如果您的图片文件夹非常大 (>100MB)，GitHub 会拒绝上传
+# 如果您想上传图片以便 App 显示，请保留这些行被注释的状态 (#)
+# 如果图片太大传不上去，请取消下面几行的注释：
+
+# JPEGImages/
+# discussion_data/images/
+# *.jpg
+# *.png
+
+# 如果生成的 Word 报告不需要上传：
+*.docx
+
+# ==========================
+# 7. Streamlit 缓存
+# ==========================
+.streamlit/
+!.streamlit/config.toml
+# 注意：我们要忽略整个 .streamlit 文件夹里的缓存，但保留 config.toml (如果有的话)
+# 并且上面第一条已经强制忽略了 secrets.toml

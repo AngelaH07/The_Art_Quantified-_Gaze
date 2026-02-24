@@ -1,0 +1,6 @@
+Group: Adult Woman vs Adult Man
+Woman Count: 567, Mean: 0.2660
+Man Count: 535, Mean: 0.1746
+T-statistic: 10.9387
+P-value: 0.0000
+结论: 在 0.05 显著性水平下，不同性别的主体在综合得分上存在显著差异。

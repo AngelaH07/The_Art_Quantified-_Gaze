@@ -1,0 +1,7 @@
+Cronbach's Alpha Reliability Test
+-----------------------------------
+Number of Items (Indicators): 10
+Cronbach's Alpha: 0.6211
+Internal Consistency: 一般 (Questionable)
+
+注：Alpha系数用于衡量指标体系内部的一致性。通常 > 0.7 认为信度较好。
