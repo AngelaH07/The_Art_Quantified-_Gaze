@@ -356,11 +356,24 @@ elif menu_index == 3:
         col_img, col_chat = st.columns([1, 1])
         
         # 路径处理
-        img_rel_path = case['Comparison_Image']
-        possible_paths = [
-            os.path.join(BASE_DIR, img_rel_path),
-            os.path.join(BASE_DIR, "images", os.path.basename(img_rel_path))
-        ]
+        # 优先使用 Comparison_Image (如果存在)，否则根据 Genre 和 Filename 构造路径
+        if 'Comparison_Image' in case:
+            img_rel_path = case['Comparison_Image']
+            possible_paths = [
+                os.path.join(BASE_DIR, img_rel_path),
+                os.path.join(BASE_DIR, "images", os.path.basename(img_rel_path))
+            ]
+        else:
+            # 根据经验规律构造: discussion_data/{Genre}/{Filename_without_ext}_analysis.jpg
+            genre_folder = case['Genre']
+            filename = case['Filename']
+            analysis_filename = filename.replace('.jpg', '_analysis.jpg')
+            possible_paths = [
+                os.path.join(BASE_DIR, genre_folder, analysis_filename),
+                # 兼容性备选路径
+                os.path.join(BASE_DIR, genre_folder, filename)
+            ]
+
         final_img_path = next((p for p in possible_paths if os.path.exists(p)), None)
 
         with col_img:
@@ -368,7 +381,7 @@ elif menu_index == 3:
                 st.image(final_img_path, caption=sel_img_name, use_container_width=True)
                 st.metric(t['p3_metric'], f"{case['Comprehensive_Score']:.4f}")
             else:
-                st.error(f"Image not found. Searched in: {possible_paths}")
+                st.error(f"Image not found. Checked: {possible_paths}")
 
         with col_chat:
             st.subheader(t['p3_panel'])
