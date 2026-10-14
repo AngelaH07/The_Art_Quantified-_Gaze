@@ -29,7 +29,7 @@ Without a configured key, the sidebar provides a password field for the current 
 
 The client uses the documented [chat completions endpoint](https://docs.siliconflow.cn/docs/api/chat-completions-post) and [multimodal image input](https://docs.siliconflow.cn/docs/userguide/capabilities/vision). Model availability can change; override `SILICONFLOW_MODEL` as needed. The legacy provider and `QWEN_API_KEY` are no longer used.
 
-Debate replies use [streaming](https://docs.siliconflow.cn/docs/userguide/capabilities/stream-mode), so text appears while it is generated. The client allows 10 seconds to connect and 120 seconds without incoming response data; a reply can take longer overall while data keeps arriving. If a request fails or the stream ends unexpectedly, partial text is cleared. The last completed debate is preserved and explicitly labeled when shown after a failed retry.
+Debate replies use [streaming](https://docs.siliconflow.cn/docs/userguide/capabilities/stream-mode), so text appears while it is generated. The client allows 10 seconds to connect and 300 seconds without incoming response data, including the wait for the first response. This accommodates slow initial responses observed from the cloud deployment; a reply can take longer overall while data keeps arriving. If a request fails or the stream ends unexpectedly, partial text is cleared. The last completed debate is preserved and explicitly labeled when shown after a failed retry.
 
 ## Languages and data
 
