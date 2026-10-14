@@ -55,7 +55,7 @@ class SiliconFlowClientTests(unittest.TestCase):
         self.assertTrue(kwargs['json']['messages'][0]['content'][1]['image_url']['url'].startswith('data:image/png;base64,'))
         self.assertTrue(kwargs['json']['stream'])
         self.assertTrue(kwargs['stream'])
-        self.assertEqual(kwargs['timeout'], (10, 120))
+        self.assertEqual(kwargs['timeout'], (10, 300))
         response.close.assert_called_once()
 
     @patch('siliconflow_client.requests.post')
