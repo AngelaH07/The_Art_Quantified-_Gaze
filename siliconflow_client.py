@@ -62,7 +62,7 @@ def stream_siliconflow_vl(
             headers=headers,
             json=payload,
             stream=True,
-            timeout=(10, 120),
+            timeout=(10, 300),
         )
         try:
             if response.status_code != 200:
